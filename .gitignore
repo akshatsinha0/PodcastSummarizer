@@ -6,6 +6,9 @@ gradle-app.setting
 
 # Local configuration
 local.properties
+.env
+.env.local
+.env.*.local
 
 # IDE/Android Studio/IntelliJ
 .idea/

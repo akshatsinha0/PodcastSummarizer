@@ -3,7 +3,8 @@ package com.example.aipodcast
 import android.content.Context
 import androidx.work.WorkManager
 import com.example.aipodcast.core.networking.HttpClientProvider
-import com.example.aipodcast.data.processor.MockSummarizationProcessor
+import com.example.aipodcast.data.api.GeminiApiService
+import com.example.aipodcast.data.processor.GeminiSummarizationProcessor
 import com.example.aipodcast.data.processor.MockTranscriptionProcessor
 import com.example.aipodcast.data.repo.InMemoryEpisodeRepository
 import com.example.aipodcast.data.repo.ProcessingRepositoryImpl
@@ -23,8 +24,18 @@ class AppContainer(private val context: Context) {
     private val workManager by lazy { WorkManager.getInstance(context) }
     private val okHttpClient by lazy { HttpClientProvider.createOkHttpClient() }
     
+    private val geminiRetrofit by lazy {
+        HttpClientProvider.createRetrofit("https://generativelanguage.googleapis.com/", okHttpClient)
+    }
+    
+    private val geminiApiService by lazy {
+        geminiRetrofit.create(GeminiApiService::class.java)
+    }
+    
     private val transcriptionProcessor: TranscriptionProcessor by lazy { MockTranscriptionProcessor() }
-    private val summarizationProcessor: SummarizationProcessor by lazy { MockSummarizationProcessor() }
+    private val summarizationProcessor: SummarizationProcessor by lazy { 
+        GeminiSummarizationProcessor(geminiApiService) 
+    }
     
     val episodeRepository: EpisodeRepository by lazy { 
         InMemoryEpisodeRepository() 

@@ -21,8 +21,8 @@ android {
 
     buildTypes {
         debug {
+            buildConfigField("String", "GEMINI_API_KEY", "\"${project.findProperty("GEMINI_API_KEY") ?: ""}\"")
             buildConfigField("String", "OPENAI_API_KEY", "\"${project.findProperty("OPENAI_API_KEY") ?: ""}\"")
-            buildConfigField("String", "WHISPER_API_KEY", "\"${project.findProperty("WHISPER_API_KEY") ?: ""}\"")
         }
         release {
             isMinifyEnabled = false
@@ -30,8 +30,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "GEMINI_API_KEY", "\"${project.findProperty("GEMINI_API_KEY") ?: ""}\"")
             buildConfigField("String", "OPENAI_API_KEY", "\"${project.findProperty("OPENAI_API_KEY") ?: ""}\"")
-            buildConfigField("String", "WHISPER_API_KEY", "\"${project.findProperty("WHISPER_API_KEY") ?: ""}\"")
         }
     }
     compileOptions {
