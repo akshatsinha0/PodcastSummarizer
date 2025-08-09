@@ -10,13 +10,17 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.aipodcast"
+        applicationId = "com.aipodcast.summarizer"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        // App metadata for Play Store
+        resValue("string", "app_name", "AI Podcast Summarizer")
+        resValue("string", "app_description", "Transform your podcasts into intelligent summaries and chapters using AI")
     }
 
     buildTypes {
@@ -25,13 +29,17 @@ android {
             buildConfigField("String", "OPENAI_API_KEY", "\"${project.findProperty("OPENAI_API_KEY") ?: ""}\"")
         }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
             buildConfigField("String", "GEMINI_API_KEY", "\"${project.findProperty("GEMINI_API_KEY") ?: ""}\"")
             buildConfigField("String", "OPENAI_API_KEY", "\"${project.findProperty("OPENAI_API_KEY") ?: ""}\"")
+            
+            // Signing config will be added here
+            // signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
@@ -63,7 +71,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.kotlinx.serialization)
     implementation(libs.okhttp)
-    debugImplementation(libs.okhttp.logging)
+    implementation(libs.okhttp.logging)
     
     implementation(libs.media3.exoplayer)
     implementation(libs.media3.ui)
