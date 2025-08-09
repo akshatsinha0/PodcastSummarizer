@@ -1,0 +1,42 @@
+# Gradle
+.gradle/
+build/
+*/build/
+gradle-app.setting
+
+# Local configuration
+local.properties
+
+# IDE/Android Studio/IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/gradle.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/httpRequests/
+.navigation/
+captures/
+
+# Keystores
+*.jks
+*.keystore
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.apk
+*.ap_
+*.dex
+*.class
+
+# NDK
+ndkBuild/

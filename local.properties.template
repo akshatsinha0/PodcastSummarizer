@@ -1,0 +1,13 @@
+## This file contains machine-specific properties for the Gradle build toolkit.
+# For more information about this file, see:
+# https://developer.android.com/studio/build#properties-files
+
+# Location of the Android SDK. This is only used by Gradle.
+# For customization when using a Version Control System, please read the
+# header note.
+#Mon Dec 09 10:00:00 PST 2024
+sdk.dir=C\:\\Users\\YourUser\\AppData\\Local\\Android\\Sdk
+
+# API Keys for AI services (copy this file to local.properties and add your keys)
+# OPENAI_API_KEY=your_openai_api_key_here
+# WHISPER_API_KEY=your_whisper_api_key_here
