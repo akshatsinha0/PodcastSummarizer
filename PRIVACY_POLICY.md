@@ -72,8 +72,8 @@ We may update this Privacy Policy periodically. Changes will be posted within th
 ## Contact Information
 
 For questions about this Privacy Policy, contact us at:
-- **Email**: [Your Email]
-- **Website**: [Your Website]
+- **Email**: to_be_disclosed_later
+- **Website**: to_be_disclosed_later
 
 ## Third-Party Privacy Policies
 
